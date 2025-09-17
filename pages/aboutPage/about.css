@@ -1,0 +1,64 @@
+/* About Page Styling */
+.about-page-main {
+    background-color: #fff; /* The light pink background from the image */
+    padding: 80px 20px;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row; /* Default layout for desktop */
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-text-content {
+    flex: 1;
+}
+
+.about-text-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.about-text-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px; /* Adjust spacing between text and image */
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: adds a slight curve to the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments for the About page */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Stack columns on top of each other */
+        text-align: center;
+    }
+
+    .about-image {
+        order: -1; /* Place the image above the text on mobile */
+        margin-bottom: 20px;
+        padding-left: 0;
+    }
+    
+    .about-text-content h1 {
+        font-size: 2rem;
+    }
+}

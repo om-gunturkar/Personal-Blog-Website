@@ -1,0 +1,58 @@
+/* General Layout and Container for Blog Posts */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.posts-grid {
+    display: grid;
+    /* This creates a responsive grid that can fit a minimum of 300px wide columns */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 30px;
+}
+
+/* Individual Blog Post Card Styling */
+.blog-post {
+    background-color: #FCE8E6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Add a subtle hover effect to make the cards interactive */
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+/* Post Content Styling */
+.post-title {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.post-meta span {
+    margin-right: 15px;
+}
+
+.post-content {
+    line-height: 1.6;
+}
+
+/* Style the "Read More" link */
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007bff; /* Use your preferred link color */
+    text-decoration: none;
+    font-weight: bold;
+}
