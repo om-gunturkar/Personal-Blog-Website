@@ -1,106 +1,370 @@
-/* General Styling */
+/* General Body & Typography */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* A modern font similar to the image */
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f8faff; /* Lighter background for the homepage feel */
     color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll from background patterns */
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
 }
 
-/* Header Styling */
+/* Header Styles */
 .main-header {
-    background-color: #FCE8E6;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
+    background: #fff; /* White header as in the image */
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1100px;
+    margin: auto;
     padding: 0 20px;
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
+    color: #333; /* Darker logo text */
     text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 30px; /* Adjust size as needed */
+    height: 30px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 6px; /* Slightly rounded corners for placeholder image */
+}
+
+
+.nav-links a {
+    color: #555; /* Slightly lighter link color */
+    text-decoration: none;
+    margin-left: 30px; /* More spacing */
+    font-weight: 500; /* Medium weight */
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 5px; /* Space for underline effect */
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #6a5acd; /* Purple hover/active color */
+    border-bottom: 2px solid #6a5acd; /* Underline effect */
+}
+
+
+/* Hero Section (Homepage Specific) */
+.hero-section {
+    min-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden; /* To contain the background patterns */
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px; /* Ensure text block doesn't get too small */
+    text-align: left;
+}
+
+.hero-text .greeting {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    font-size: 3.8rem; /* Larger for impact */
+    margin: 0 0 10px 0;
+    color: #2c2c2c;
+    line-height: 1.1;
+}
+
+.hero-text h1 span {
+    color: #6a5acd; /* Purple for the name */
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin: 0 0 20px 0;
+    color: #444;
+    font-weight: 600;
+}
+
+.hero-text .specialization {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px; /* Slightly more rounded */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent; /* For secondary button */
+}
+
+.btn-primary {
+    background-color: #6a5acd; /* Purple button */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #5a4bbf;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.3);
+}
+
+.btn-secondary {
+    background-color: #e0e0e0; /* Light gray button */
+    color: #333;
+    border-color: #e0e0e0;
+}
+
+.btn-secondary:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image-container {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px; /* Space for the background shapes */
+}
+
+.hero-image {
+    width: 400px;
+    max-width: 300px; /* Control image size */
+    height: 350px;
+    border-radius: 20px; /* Circular image */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2; /* Bring image to front of shapes */
+}
+
+.hero-image-bg-shape {
+    position: absolute;
+    height: 400px; /* Slightly larger than image */
+    width:  300px;
+    background-color: #6a5acd; /* Purple background circle */
+    border-radius: 20px;
+    top:48%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.hero-image-pattern {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="%23e0e0e0" /></svg>');
+    background-size: 20px 20px;
+    opacity: 0.6;
+    z-index: 0;
+    transform: rotate(20deg);
+}
+
+
+/* --- Existing Styles from previous responses (ensure these are included) --- */
+
+/* Page Specific Header for other pages (My Blog, About, Contact) */
+.page-header {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    text-align: center;
     color: #333;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #555;
-    margin-left: 20px;
-    font-weight: bold;
-    transition: color 0.3s ease;
+.page-header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #6a5acd;
 }
 
-.nav-links a:hover {
-    color: #007bff;
+.page-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    line-height: 1.8;
 }
 
-/* Blog Posts Grid */
+/* Blog Posts Grid Styles (for myBlogs.html) */
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 30px; /* Increased gap */
     margin-top: 30px;
 }
 
 .blog-post {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog-post:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.post-title {
-    font-size: 1.5rem;
+.blog-post h3 {
     margin-top: 0;
+    color: #6a5acd; /* Purple headings */
+    font-size: 1.4rem;
+    margin-bottom: 10px;
 }
 
-.post-meta {
-    font-size: 0.9rem;
-    color: #777;
+.blog-post p {
+    font-size: 1rem;
+    color: #666;
     margin-bottom: 15px;
 }
 
-.post-meta span {
-    margin-right: 15px;
+.blog-post .read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #6a5acd;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
 }
 
-.post-content {
-    line-height: 1.6;
+.blog-post .read-more:hover {
+    text-decoration: underline;
 }
 
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
+/* About Page Specific (for about.html) */
+.profile-image {
+    
+    display: block;
+    max-width: 220px; /* Slightly larger */
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    border: 5px solid #6a5acd; /* Purple border */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.page-content p {
+    margin-bottom: 1.5em; /* Spacing between paragraphs */
+}
+
+/* Contact Page Specific (for contact.html) */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* Constrain form width */
+    margin: 0 auto;
+}
+
+.contact-form label {
+    margin-bottom: 8px; /* More space */
+    font-weight: 600;
+    color: #444;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px; /* Larger padding */
+    margin-bottom: 25px; /* More space */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #6a5acd;
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2);
+    outline: none;
+}
+
+.contact-form button[type="submit"] {
+    background: #6a5acd;
     color: #fff;
-    margin-top: 40px;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    align-self: flex-start; /* Align button to the left */
 }
 
-/* Responsive adjustments */
+.contact-form button[type="submit"]:hover {
+    background-color: #5a4bbf;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.3);
+}
+
+/* Footer Styles */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0; /* More padding */
+    margin-top: 4rem; /* More space from content */
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
-        align-items: flex-start;
+        text-align: center;
     }
 
     .nav-links {
@@ -108,7 +372,247 @@ footer {
     }
 
     .nav-links a {
-        margin-left: 0;
-        margin-right: 15px;
+        margin: 0 10px; /* Adjust spacing for smaller screens */
     }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image-container {
+        margin-top: 40px;
+    }
+
+    .blog-post {
+        padding: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    .hero-image {
+        max-width: 250px;
+    }
+
+    .hero-image-bg-shape {
+        width: 270px;
+        height: 270px;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+}
+
+
+/* Latest Blogs Section Styles */
+.latest-blogs-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.blog-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category-tag {
+    background-color: #f0f0f0;
+    color: #555;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.category-tag:hover,
+.category-tag.active {
+    background-color: #6a5acd;
+    color: #fff;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.blog-post {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.blog-post:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.blog-post h3 {
+    margin-top: 0;
+    color: #6a5acd;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.blog-post .read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #6a5acd;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.blog-post .read-more:hover {
+    text-decoration: underline;
+}
+
+.all-blogs-link {
+    margin-top: 40px;
+}
+
+/* Add Post Form Styles */
+.add-post-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.add-post-form label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.add-post-form input[type="text"],
+.add-post-form input[type="url"],
+.add-post-form select,
+.add-post-form textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-post-form input:focus,
+.add-post-form select:focus,
+.add-post-form textarea:focus {
+    border-color: #6a5acd;
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2);
+    outline: none;
+}
+
+.add-post-form small {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.add-post-form button[type="submit"] {
+    background: #6a5acd;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.add-post-form button[type="submit"]:hover {
+    background-color: #5a4bbf;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.3);
+}
+
+/* Back Button Styling */
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #6a5acd;
+    background-color: #fff;
+    border: 2px solid #6a5acd;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #6a5acd;
+    color: #fff;
 }

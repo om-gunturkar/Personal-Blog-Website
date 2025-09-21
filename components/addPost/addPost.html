@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Blog Post - My Personal Blog</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../../index.html" class="logo">
+         The Digital Journal
+            </a>
+            <nav class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="./addPost.html" class="active">Add Post</a> 
+                <a href="../about/about.html">About</a>
+                <a href="../contactMe/contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="page-header">
+            <h1>Add New Blog Post</h1>
+        </section>
+        
+        <section class="page-content">
+            <form id="add-post-form" class="add-post-form">
+                <label for="post-title">Title:</label>
+                <input type="text" id="post-title" name="title" required>
+
+                <label for="post-subject">Subject/Short Excerpt:</label>
+                <input type="text" id="post-subject" name="subject" required>
+
+                <label for="post-category">Category:</label>
+                <select id="post-category" name="category" required>
+                    <option value="">Select a Category</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="UX/UI Design">UX/UI Design</option>
+                    <option value="AI/ML">AI/ML</option>
+                    <option value="General">General</option>
+                </select>
+
+                <label for="post-image">Image URL (Optional):</label>
+                <input type="url" id="post-image" name="image">
+                <small>Provide a direct URL to an image. If empty, a placeholder will be used.</small>
+
+                <label for="post-description">Full Content:</label>
+                <textarea id="post-description" name="description" rows="10" required></textarea>
+
+                <button type="submit" class="btn btn-primary">Publish Post</button>
+            </form>
+            <div id="message" style="margin-top: 20px; text-align: center; color: green; font-weight: bold;"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Personal Blog. All Rights Reserved.</p>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

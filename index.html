@@ -1,34 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Blog</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Om Gunturkar - Full Stack Developer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
     <header class="main-header">
-        <div class="header-container">
-            <a href="#" class="logo">My DevBlog</a>
-            <nav class="nav-links">
-                <a href="#">Home</a>
-                <a href="./pages/myBlogs/myBlogs.html">My Blog</a>
-                <a href="./pages/aboutPage/about.html">About</a>
-                <a href="./pages/contactMePage/contact.html ">Contact</a>
-            </nav>
-        </div>
+      <div class="header-container">
+        <a href="index.html" class="logo">
+            The Digital Journal
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="./components/addPost/addPost.html">Add Post</a>
+          <a href="./components/about/about.html">About</a>
+          <a href="./components/contactMe/contact.html ">Contact</a>
+        </nav>
+      </div>
     </header>
 
-    <main class="container">
-        <section id="blog-posts-container" class="posts-grid">
-            </section>
+    <main class="hero-section">
+      <div class="hero-content container">
+        <div class="hero-text">
+          <p class="greeting">Hi, I'm</p>
+          <h1>Om Gunturkar</h1>
+          <h2>Full Stack Developer</h2>
+          <p class="specialization">BE | Computer Science Student</p>
+          <div class="hero-buttons">
+            <a
+              href="./components/contactMe/contact.html"
+              class="btn btn-primary"
+              >Contact Me</a
+            >
+            <a href="./components/about/about.html" class="btn btn-secondary"
+              >About Me</a
+            >
+          </div>
+        </div>
+        <div class="hero-image-container">
+          <img
+            src="assets/retro.png"
+            alt="Om Gunturkar Profile"
+            class="hero-image"
+          />
+        </div>
+      </div>
     </main>
 
+    <section class="latest-blogs-section container">
+      <div class="section-header">
+        <h2>Latest Blog Posts</h2>
+        <div class="blog-categories">
+          <span class="category-tag active">All</span>
+          <span class="category-tag">Web Development</span>
+          <span class="category-tag">Data Science</span>
+          <span class="category-tag">UX/UI Design</span>
+          <span class="category-tag">AI/ML</span>
+        </div>
+      </div>
+      <div id="blog-posts-container" class="posts-grid"></div>
+      <div class="all-blogs-link">
+        <a
+          href="javascript:void(0);"
+          id="viewAllBlogsLink"
+          class="btn btn-secondary"
+          >View All Blogs</a
+        >
+        <a
+          href="javascript:void(0);"
+          id="viewLessBlogsLink"
+          class="btn btn-secondary"
+          style="display: none"
+          >Show Less</a
+        >
+      </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 My Personal Blog. All Rights Reserved.</p>
+      <p>&copy; 2024 My Personal Blog. All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
