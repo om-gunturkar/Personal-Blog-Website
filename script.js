@@ -72,8 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const viewAllLink = document.getElementById("viewAllBlogsLink");
   const viewLessLink = document.getElementById("viewLessBlogsLink");
   const addPostForm = document.getElementById("add-post-form");
-  const editPostForm = document.getElementById("edit-post-form"); // New form
+  const editPostForm = document.getElementById("edit-post-form");
   const messageDiv = document.getElementById("message");
+  const deleteButton = document.getElementById("delete-post-btn"); // Get the new delete button
+
+  // In your script.js file, find the renderPosts function
+  // In your script.js file, find the renderPosts function
+
+  // In your script.js file, find the renderPosts function
+  // In your script.js file, find the renderPosts function
+
+  // In your script.js file, find the renderPosts function
 
   function renderPosts(postsToRender) {
     if (!postsContainer) return;
@@ -81,20 +90,29 @@ document.addEventListener("DOMContentLoaded", () => {
     postsContainer.innerHTML = "";
     postsToRender.forEach((post) => {
       const encodedTitle = encodeURIComponent(post.title);
-
       const postElement = document.createElement("div");
-      postElement.classList.add("blog-post");
 
+      // The entire card is now a link
+      postElement.classList.add("blog-post", "clickable-card");
+
+      // We create a single link that wraps all the content
       postElement.innerHTML = `
-                ${
-                  post.image
-                    ? `<img src="${post.image}" alt="${post.title}" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:15px;">`
+    <a href="/components/blogs/view.html?title=${encodedTitle}" class="card-link-wrapper">
+        <div class="card-inner">
+            ${
+                post.image
+                    ? `<img src="${post.image}" alt="${post.title}" class="blog-post-image">`
                     : ""
-                }
+            }
+            <div class="card-content">
                 <h3>${post.title}</h3>
                 <p>${post.excerpt}</p>
-                <a href="/components/blogs/edit.html?title=${encodedTitle}" class="read-more">Read More & Edit</a>
-            `;
+            </div>
+        </div>
+        <span class="read-more">Read More →</span>
+    </a>
+`;
+
 
       postsContainer.appendChild(postElement);
     });
@@ -170,50 +188,55 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Handle new post submission
-  // Handle new post submission
-// Handle new post submission
-    if (addPostForm) {
-        const publishButton = addPostForm.querySelector('button[type="submit"]');
+  if (addPostForm) {
+    const publishButton = addPostForm.querySelector('button[type="submit"]');
 
-        addPostForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const newPost = {
-                title: document.getElementById('post-title').value,
-                excerpt: document.getElementById('post-subject').value,
-                category: document.getElementById('post-category').value,
-                image: document.getElementById('post-image').value || 'https://via.placeholder.com/400x250/9c27b0/ffffff?text=New+Blog',
-                content: document.getElementById('post-description').value
-            };
-            customBlogPosts.unshift(newPost);
-            localStorage.setItem('customBlogPosts', JSON.stringify(customBlogPosts));
-            
-            // Provide instant feedback and change button state
-            if (messageDiv) {
-                messageDiv.textContent = 'Post published successfully! Redirecting To HOME Page.';
-                publishButton.textContent = 'Published!';
-                publishButton.disabled = true; // Disable the button to prevent double-submitting
-                publishButton.style.backgroundColor = '#28a745'; // Change color to green
+    addPostForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (addPostForm.checkValidity()) {
+        const newPost = {
+          title: document.getElementById("post-title").value,
+          excerpt: document.getElementById("post-subject").value,
+          category: document.getElementById("post-category").value,
+          image:
+            document.getElementById("post-image").value ||
+            "https://via.placeholder.com/400x250/9c27b0/ffffff?text=New+Blog",
+          content: document.getElementById("post-description").value,
+        };
 
-                setTimeout(() => {
-                    messageDiv.textContent = '';
-                    publishButton.textContent = 'Publish Post';
-                    publishButton.disabled = false;
-                    publishButton.style.backgroundColor = ''; // Revert to original style
-                    window.location.href = '../../index.html'; // Redirect to the home page
-                }, 2000);
-            }
-            addPostForm.reset();
-        });
-    }
+        customBlogPosts.unshift(newPost);
+        localStorage.setItem(
+          "customBlogPosts",
+          JSON.stringify(customBlogPosts)
+        );
 
-  // New logic to handle the edit form
+        if (messageDiv) {
+          messageDiv.textContent = "Post published successfully!";
+          messageDiv.style.color = "green";
+          publishButton.textContent = "Published!";
+          publishButton.disabled = true;
+          publishButton.style.backgroundColor = "#28a745";
+
+          setTimeout(() => {
+            window.location.href = "../../index.html";
+          }, 2000);
+        }
+
+        addPostForm.reset();
+        addPostForm.classList.remove("was-validated");
+      } else {
+        addPostForm.classList.add("was-validated");
+      }
+    });
+  }
+
+  // New logic to handle the edit form and the new delete button
   if (editPostForm) {
     const urlParams = new URLSearchParams(window.location.search);
     const postTitle = decodeURIComponent(urlParams.get("title"));
-    const postToEdit = allBlogPosts.find((post) => post.title === postTitle);
-
+    const postToEdit = customBlogPosts.find((post) => post.title === postTitle);
+    // Important: check if the post exists and if it's a custom post (not a default one)
     if (postToEdit) {
-      // Populate form fields with the existing data
       document.getElementById("post-title").value = postToEdit.title;
       document.getElementById("post-subject").value = postToEdit.excerpt;
       document.getElementById("post-category").value = postToEdit.category;
@@ -223,16 +246,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "edit-post-title-header"
       ).textContent = `Edit "${postToEdit.title}"`;
 
+      // Event listener for the "Save Changes" button
       editPostForm.addEventListener("submit", (event) => {
         event.preventDefault();
-
-        // Find the index of the post in the customBlogPosts array
         const postIndex = customBlogPosts.findIndex(
           (post) => post.title === postTitle
         );
 
         if (postIndex !== -1) {
-          // Update the post with new data
           customBlogPosts[postIndex] = {
             title: document.getElementById("post-title").value,
             excerpt: document.getElementById("post-subject").value,
@@ -248,12 +269,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (messageDiv) {
           messageDiv.textContent = "Post updated successfully!";
+          messageDiv.style.color = "green";
           setTimeout(() => {
             messageDiv.textContent = "";
-            window.location.href = "../../index.html"; // Redirect to the home page
+            window.location.href = "../../index.html";
           }, 2000);
         }
       });
+
+      // Event listener for the "Delete Blog" button
+      if (deleteButton) {
+        deleteButton.addEventListener("click", () => {
+          // Confirmation dialog for the user
+          const isConfirmed = confirm(
+            `Are you sure you want to delete the post "${postToEdit.title}"?`
+          );
+
+          if (isConfirmed) {
+            // Find the index of the post to delete
+            const postIndex = customBlogPosts.findIndex(
+              (post) => post.title === postToEdit.title
+            );
+
+            if (postIndex !== -1) {
+              // Remove the post from the array
+              customBlogPosts.splice(postIndex, 1);
+              // Update localStorage
+              localStorage.setItem(
+                "customBlogPosts",
+                JSON.stringify(customBlogPosts)
+              );
+
+              if (messageDiv) {
+                messageDiv.textContent = "Post deleted successfully!";
+                messageDiv.style.color = "red";
+                setTimeout(() => {
+                  window.location.href = "../../index.html"; // Redirect after deletion
+                }, 1500);
+              }
+            }
+          }
+        });
+      }
     }
   }
 

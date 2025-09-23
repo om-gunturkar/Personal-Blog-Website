@@ -244,12 +244,26 @@ body {
   margin-top: 30px;
 }
 
+/* Update the existing blog-post styles */
 .blog-post {
-  background: #fff;
-  padding: 25px;
-  border-radius: 10px; /* More rounded corners */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Stronger shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Use flexbox to align content neatly */
+    flex-direction: column;
+}
+
+/* Style the new image class */
+.blog-post-image {
+    width: 100%; /* Image takes up full width of its container */
+    height: 300px; /* Set a larger, fixed height for consistency */
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
 .blog-post:hover {
@@ -466,7 +480,7 @@ footer {
   color: #555;
   padding: 8px 18px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -699,4 +713,55 @@ footer {
     width: 0;
     content: "Full Stack Developer";
   }
+}
+/* Styling for the main content container and its layout */
+.latest-blogs-section .blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.blog-post {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-link-wrapper {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  height: 100%;
+}
+
+/* Content that will blur */
+.card-inner {
+  transition: filter 0.3s ease;
+}
+
+.blog-post:hover .card-inner {
+  filter: blur(3px) brightness(0.9);
+}
+
+/* Read More overlay */
+.read-more {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  font-size: 3rem;
+  color: #6a5acd;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2; /* sits above blur */
+}
+
+.blog-post:hover .read-more {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
 }
