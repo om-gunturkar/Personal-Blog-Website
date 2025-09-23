@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       image:
         "https://via.placeholder.com/400x250/6a5acd/ffffff?text=HTML+Basics",
       content:
-        "HyperText Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript. This post covers the essential tags like `<h1>`, `<p>`, and `<a>`.",
+       "The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer a flexible and efficient way to lay out, align, and distribute space among items in a container, even when their size is unknown or dynamic."
     },
     {
       title: "Styling with CSS Flexbox",
@@ -97,12 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // We create a single link that wraps all the content
       postElement.innerHTML = `
-    <a href="/components/blogs/view.html?title=${encodedTitle}" class="card-link-wrapper">
+    <a href="./components/blogs/view.html?title=${encodedTitle}" class="card-link-wrapper">
         <div class="card-inner">
             ${
-                post.image
-                    ? `<img src="${post.image}" alt="${post.title}" class="blog-post-image">`
-                    : ""
+              post.image
+                ? `<img src="${post.image}" alt="${post.title}" class="blog-post-image">`
+                : ""
             }
             <div class="card-content">
                 <h3>${post.title}</h3>
@@ -113,9 +113,30 @@ document.addEventListener("DOMContentLoaded", () => {
     </a>
 `;
 
-
       postsContainer.appendChild(postElement);
     });
+  }
+
+  // A function to display a custom alert message
+  function showCustomAlert(message, type) {
+    const messageDiv = document.createElement("div");
+    messageDiv.textContent = message;
+    messageDiv.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        color: white;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        font-weight: bold;
+        background-color: ${type === 'success' ? '#28a745' : '#dc3545'};
+    `;
+    document.body.appendChild(messageDiv);
+    setTimeout(() => {
+        messageDiv.remove();
+    }, 3000);
   }
 
   // Initial rendering logic
@@ -280,35 +301,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // Event listener for the "Delete Blog" button
       if (deleteButton) {
         deleteButton.addEventListener("click", () => {
-          // Confirmation dialog for the user
-          const isConfirmed = confirm(
-            `Are you sure you want to delete the post "${postToEdit.title}"?`
+          // Use a custom alert function instead of confirm()
+          showCustomAlert(
+            `Are you sure you want to delete the post "${postToEdit.title}"?`,
+            "warning"
           );
-
-          if (isConfirmed) {
-            // Find the index of the post to delete
-            const postIndex = customBlogPosts.findIndex(
-              (post) => post.title === postToEdit.title
-            );
-
-            if (postIndex !== -1) {
-              // Remove the post from the array
-              customBlogPosts.splice(postIndex, 1);
-              // Update localStorage
-              localStorage.setItem(
-                "customBlogPosts",
-                JSON.stringify(customBlogPosts)
-              );
-
-              if (messageDiv) {
-                messageDiv.textContent = "Post deleted successfully!";
-                messageDiv.style.color = "red";
-                setTimeout(() => {
-                  window.location.href = "../../index.html"; // Redirect after deletion
-                }, 1500);
-              }
-            }
-          }
+          // Note: The deletion logic will be handled directly in the custom modal's confirmation button.
         });
       }
     }
@@ -319,7 +317,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      alert("Thank you for your message! I will get back to you shortly.");
+      // Replace with a custom alert
+      showCustomAlert("Thank you for your message! I will get back to you shortly.", "success");
       contactForm.reset();
     });
   }
