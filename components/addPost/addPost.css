@@ -9,12 +9,13 @@
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
-  background: #f9f9f9;
+  background: #ffffff;
   color: #333;
   line-height: 1.6;
 }
 .header-container {
   display: flex;
+  background-color: #ffffff;
   justify-content: center;
   padding: 1rem 0;
 }
@@ -34,13 +35,21 @@ footer {
    Page Header
 ================================ */
 .page-header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 2rem 0;
+  padding: 1rem 0;
+  width: 100%;
 }
 
 .page-header h1 {
+   border-bottom: 2px solid #9b5de5;  /* Purple underline */
+  background: #f0e9fc;       
   font-size: 2rem;
-  color: #2c3e50;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  color: #6a1b9a;   /* Dark purple heading */
   margin-bottom: 0.5rem;
 }
 
@@ -75,7 +84,7 @@ footer {
 .add-post-form .form-control:focus,
 .add-post-form .form-select:focus,
 .add-post-form textarea:focus {
-  border-color: #1abc9c;
+  border-color: #9b5de5;
   box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.25);
   outline: none;
 }
@@ -95,7 +104,7 @@ footer {
    Buttons
 ================================ */
 .add-post-form .btn-primary {
-  background: #1abc9c;
+  background: #9b5de5;
   border: none;
   padding: 0.7rem 1.5rem;
   border-radius: 8px;
@@ -105,7 +114,7 @@ footer {
 }
 
 .add-post-form .btn-primary:hover {
-  background: #16a085;
+  background: #9b5de5;
   transform: translateY(-2px);
 }
 

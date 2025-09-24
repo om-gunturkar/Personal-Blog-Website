@@ -29,13 +29,12 @@ a {
    Header
 ================================ */
 .main-header {
-  background:#f5f5f5;
-  color: #fff;
+  background:#ffffff;
+  color: black;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .header-container {
@@ -64,8 +63,8 @@ a {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .hero-text {
@@ -110,14 +109,14 @@ a {
 }
 
 .hero-buttons .btn-primary {
-  background: #ffffff;
-  color: #000000;
-  border: 2px solid black;
+  background: #9b5de5 !important;
+  color: #fff !important;
+  border: none !important;
   
 }
 
 .hero-buttons .btn-primary:hover {
-  background: #f1f1f1;
+  background: ;
   color: #000000;
   transform: translateY(-2px);
 }
@@ -125,7 +124,6 @@ a {
 .hero-buttons .btn-secondary {
   background: transparent;
   color: #040404;
-  border: 2px solid #000000;
 }
 
 .hero-buttons .btn-secondary:hover {
@@ -184,7 +182,7 @@ a {
 
 .category-tag.active,
 .category-tag:hover {
-  background: #1abc9c;
+  background: #9b5de5;
   color: #fff;
 }
 
@@ -258,7 +256,7 @@ a {
 }
 
 .post-overlay a {
-  background: #1abc9c;
+  background: #9b5de5;
   color: #fff;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
@@ -269,7 +267,7 @@ a {
 }
 
 .post-overlay a:hover {
-  background: #16a085;
+  background: #8142ce;
 }
 
 .post-card:hover .post-overlay {
