@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       image:
         "https://via.placeholder.com/400x250/6a5acd/ffffff?text=HTML+Basics",
       content:
-       "The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer a flexible and efficient way to lay out, align, and distribute space among items in a container, even when their size is unknown or dynamic."
+        "HyperText Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript. This post covers the essential tags like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;a&gt;</code>.",
     },
     {
       title: "Styling with CSS Flexbox",
@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     JSON.parse(localStorage.getItem("customBlogPosts")) || [];
   let allBlogPosts = [...customBlogPosts, ...defaultBlogPosts];
 
+  // Get common page elements
   const postsContainer = document.getElementById("blog-posts-container");
   const isHomePage = document.querySelector(".latest-blogs-section");
   const viewAllLink = document.getElementById("viewAllBlogsLink");
@@ -74,16 +75,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const addPostForm = document.getElementById("add-post-form");
   const editPostForm = document.getElementById("edit-post-form");
   const messageDiv = document.getElementById("message");
-  const deleteButton = document.getElementById("delete-post-btn"); // Get the new delete button
 
-  // In your script.js file, find the renderPosts function
-  // In your script.js file, find the renderPosts function
+  // A function to display a custom alert message
+  function showCustomAlert(message, type) {
+    const messageDiv = document.createElement("div");
+    messageDiv.textContent = message;
+    messageDiv.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            background-color: ${type === "success" ? "#28a745" : "#dc3545"};
+        `;
+    document.body.appendChild(messageDiv);
+    setTimeout(() => {
+      messageDiv.remove();
+    }, 3000);
+  }
 
-  // In your script.js file, find the renderPosts function
-  // In your script.js file, find the renderPosts function
-
-  // In your script.js file, find the renderPosts function
-
+  // Function to render blog posts on the main blog page
+  // Function to render blog posts on the main blog page
   function renderPosts(postsToRender) {
     if (!postsContainer) return;
 
@@ -92,54 +108,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const encodedTitle = encodeURIComponent(post.title);
       const postElement = document.createElement("div");
 
-      // The entire card is now a link
-      postElement.classList.add("blog-post", "clickable-card");
+      postElement.classList.add("post-card");
 
-      // We create a single link that wraps all the content
       postElement.innerHTML = `
-    <a href="./components/blogs/view.html?title=${encodedTitle}" class="card-link-wrapper">
-        <div class="card-inner">
-            ${
-              post.image
-                ? `<img src="${post.image}" alt="${post.title}" class="blog-post-image">`
-                : ""
-            }
-            <div class="card-content">
-                <h3>${post.title}</h3>
-                <p>${post.excerpt}</p>
-            </div>
-        </div>
-        <span class="read-more">Read More →</span>
-    </a>
-`;
-
+      <img src="${post.image}" alt="${post.title}">
+      <div class="post-overlay">
+        <a href="./components/blogs/view.html?title=${encodedTitle}">Read More →</a>
+      </div>
+      <div class="post-card-content">
+        <h3>${post.title}</h3>
+        <p>${post.excerpt}</p>
+      </div>
+    `;
       postsContainer.appendChild(postElement);
     });
   }
 
-  // A function to display a custom alert message
-  function showCustomAlert(message, type) {
-    const messageDiv = document.createElement("div");
-    messageDiv.textContent = message;
-    messageDiv.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        padding: 15px;
-        border-radius: 8px;
-        color: white;
-        z-index: 1000;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        font-weight: bold;
-        background-color: ${type === 'success' ? '#28a745' : '#dc3545'};
-    `;
-    document.body.appendChild(messageDiv);
-    setTimeout(() => {
-        messageDiv.remove();
-    }, 3000);
-  }
-
-  // Initial rendering logic
+  // --- Core Page Rendering & Logic ---
+  // This block handles the main index and blog listing pages
   if (postsContainer) {
     if (isHomePage) {
       const initialPosts = allBlogPosts.slice(0, 3);
@@ -152,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Event listener for "View All Blogs"
+  // --- Navigation and Filtering Logic ---
   if (viewAllLink) {
     viewAllLink.addEventListener("click", (event) => {
       event.preventDefault();
@@ -166,7 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Event listener for "Show Less"
   if (viewLessLink) {
     viewLessLink.addEventListener("click", (event) => {
       event.preventDefault();
@@ -181,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Category filtering logic
   const categoryTags = document.querySelectorAll(".category-tag");
   categoryTags.forEach((tag) => {
     tag.addEventListener("click", () => {
@@ -208,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Handle new post submission
+  // --- Add Post Form Logic ---
   if (addPostForm) {
     const publishButton = addPostForm.querySelector('button[type="submit"]');
 
@@ -251,12 +235,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // New logic to handle the edit form and the new delete button
+  // --- Edit Post Form Logic ---
   if (editPostForm) {
     const urlParams = new URLSearchParams(window.location.search);
     const postTitle = decodeURIComponent(urlParams.get("title"));
     const postToEdit = customBlogPosts.find((post) => post.title === postTitle);
-    // Important: check if the post exists and if it's a custom post (not a default one)
+    const deleteButtonOnEditPage = document.getElementById("delete-post-btn");
+
     if (postToEdit) {
       document.getElementById("post-title").value = postToEdit.title;
       document.getElementById("post-subject").value = postToEdit.excerpt;
@@ -267,7 +252,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "edit-post-title-header"
       ).textContent = `Edit "${postToEdit.title}"`;
 
-      // Event listener for the "Save Changes" button
       editPostForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const postIndex = customBlogPosts.findIndex(
@@ -298,27 +282,104 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Event listener for the "Delete Blog" button
-      if (deleteButton) {
-        deleteButton.addEventListener("click", () => {
-          // Use a custom alert function instead of confirm()
-          showCustomAlert(
-            `Are you sure you want to delete the post "${postToEdit.title}"?`,
-            "warning"
+      if (deleteButtonOnEditPage) {
+        deleteButtonOnEditPage.addEventListener("click", () => {
+          const confirmation = confirm(
+            `Are you sure you want to delete the post "${postToEdit.title}"?`
           );
-          // Note: The deletion logic will be handled directly in the custom modal's confirmation button.
+          if (confirmation) {
+            const postIndex = customBlogPosts.findIndex(
+              (p) => p.title === postToEdit.title
+            );
+            if (postIndex !== -1) {
+              customBlogPosts.splice(postIndex, 1);
+              localStorage.setItem(
+                "customBlogPosts",
+                JSON.stringify(customBlogPosts)
+              );
+              showCustomAlert("Post deleted successfully!", "error");
+              setTimeout(() => {
+                window.location.href = "../../index.html";
+              }, 1500);
+            }
+          }
         });
       }
     }
   }
 
-  // Contact form handler
+  // --- Single Post View Logic ---
+  // This block handles the view.html page
+  const postContainer = document.getElementById("blog-post-content");
+  const actionButtons = document.getElementById("action-buttons");
+  const editButton = document.getElementById("edit-post-btn");
+  const loadingIndicator = document.getElementById("loading-indicator");
+
+  if (postContainer && actionButtons && editButton && loadingIndicator) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const postTitle = decodeURIComponent(urlParams.get("title"));
+    const post = allBlogPosts.find((p) => p.title === postTitle);
+    const isCustomPost = customBlogPosts.some((p) => p.title === postTitle);
+
+    if (post) {
+      postContainer.innerHTML = `
+                ${
+                  post.image
+                    ? `<img src="${post.image}" alt="${post.title}" class="post-image">`
+                    : ""
+                }
+                <h2 class="post-title">${post.title}</h2>
+                <h3 class="post-category">${post.category}</h3>
+                <div class="post-content">${post.content}</div>
+            `;
+
+      if (isCustomPost) {
+        actionButtons.style.display = "flex";
+      }
+
+      editButton.href = `./edit.html?title=${encodeURIComponent(post.title)}`;
+
+      // This delete button logic is a duplicate of the one on the edit page.
+      // It should be handled by a single function to avoid redundancy.
+      const deleteButtonOnViewPage = document.getElementById("delete-post-btn");
+      if (deleteButtonOnViewPage) {
+        deleteButtonOnViewPage.addEventListener("click", () => {
+          const confirmation = confirm(
+            `Are you sure you want to delete the post "${post.title}"?`
+          );
+          if (confirmation) {
+            const postIndex = customBlogPosts.findIndex(
+              (p) => p.title === post.title
+            );
+            if (postIndex !== -1) {
+              customBlogPosts.splice(postIndex, 1);
+              localStorage.setItem(
+                "customBlogPosts",
+                JSON.stringify(customBlogPosts)
+              );
+              showCustomAlert("Post deleted successfully!", "error");
+              setTimeout(() => {
+                window.location.href = "../../index.html";
+              }, 1500);
+            }
+          }
+        });
+      }
+    } else {
+      postContainer.innerHTML = `<p>Blog post not found.</p>`;
+    }
+    loadingIndicator.style.display = "none";
+  }
+
+  // --- Contact Form Handler ---
   const contactForm = document.querySelector(".contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      // Replace with a custom alert
-      showCustomAlert("Thank you for your message! I will get back to you shortly.", "success");
+      showCustomAlert(
+        "Thank you for your message! I will get back to you shortly.",
+        "success"
+      );
       contactForm.reset();
     });
   }

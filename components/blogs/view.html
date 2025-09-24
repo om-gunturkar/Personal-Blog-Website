@@ -1,175 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Post - The Digital Journal</title>
-    <link rel="stylesheet" href="../../styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-
+    <link rel="stylesheet" href="./myBlogs.css" />
+    <link rel="stylesheet" href="../navbar.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
     <header class="main-header">
-        <div class="header-container">
-            <a href="../../index.html" class="logo">The Digital Journal</a>
-            <nav class="nav-links">
-                <a href="../../index.html">Home</a>
-                <a href="../addPost/addPost.html">Add Post</a>
-                <a href="../about/about.html">About</a>
-                <a href="../contactMe/contact.html">Contact</a>
-            </nav>
-        </div>
+      <div class="header-container">
+        <a href="../../index.html" class="logo">The Digital Journal</a>
+        <nav class="nav-links">
+          <a href="../../index.html">Home</a>
+          <a href="../addPost/addPost.html">Add Post</a>
+          <a href="../about/about.html">About</a>
+          <a href="../contactMe/contact.html">Contact</a>
+        </nav>
+      </div>
     </header>
 
     <main class="container">
-        <a href="javascript:history.back()" class="btn btn-secondary back-button">
-            &lt; Back
-        </a>
-        <article id="blog-post-content" class="full-blog-post">
-            <div id="loading-indicator" class="text-center my-5">
-                <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        </article>
-        
-        <div id="action-buttons" class="button-group" style="display: none;">
-            <a id="edit-post-btn" href="#" class="btn btn-primary">Edit Post</a>
-            <button id="delete-post-btn" class="btn btn-danger">Delete Post</button>
+      <a href="javascript:history.back()" class="btn btn-secondary back-button">
+        &lt; Back
+      </a>
+      <article id="blog-post-content" class="full-blog-post">
+        <div id="loading-indicator" class="text-center my-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
-        
+      </article>
+
+      <div id="action-buttons" class="button-group" style="display: none">
+        <a id="edit-post-btn" href="components\blogs\edit.html" class="btn btn-primary">Edit Post</a>
+        <button id="delete-post-btn" class="btn btn-danger">Delete Post</button>
+      </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 The Digital Journal. All Rights Reserved.</p>
+      <p>&copy; 2024 The Digital Journal. All Rights Reserved.</p>
     </footer>
 
     <script src="../../script.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const postTitle = decodeURIComponent(urlParams.get("title"));
-            const postContainer = document.getElementById("blog-post-content");
-            const actionButtons = document.getElementById("action-buttons");
-            const editButton = document.getElementById("edit-post-btn");
-            const deleteButton = document.getElementById("delete-post-btn");
-            const loadingIndicator = document.getElementById("loading-indicator");
-
-            // Define default posts directly in this script for demonstration
-            const defaultBlogPosts = [
-                {
-                    title: "Getting Started with HTML",
-                    excerpt: "HTML is the backbone of the web. Learn the basics of creating your first web page with HTML tags.",
-                    category: "Web Development",
-                    image: "https://via.placeholder.com/400x250/6a5acd/ffffff?text=HTML+Basics",
-                    content: "HyperText Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript. This post covers the essential tags like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;a&gt;</code>."
-                },
-                {
-                    title: "Styling with CSS Flexbox",
-                    excerpt: "CSS Flexbox is a one-dimensional layout method for arranging items in rows or columns. It makes building complex layouts much easier.",
-                    category: "Web Development",
-                    image: "https://via.placeholder.com/400x250/6a5acd/ffffff?text=Flexbox+Guide",
-                    content: "The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer a flexible and efficient way to lay out, align, and distribute space among items in a container, even when their size is unknown or dynamic."
-                },
-                {
-                    title: "Introduction to JavaScript",
-                    excerpt: "JavaScript is a programming language that makes web pages interactive. From simple animations to complex web applications, JavaScript is key.",
-                    category: "Web Development",
-                    image: "https://via.placeholder.com/400x250/6a5acd/ffffff?text=JavaScript+Intro",
-                    content: "JavaScript, often abbreviated as JS, is a high-level, interpreted programming language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions. It is used to create dynamic and interactive content on web pages."
-                },
-                {
-                    title: "Understanding Git and GitHub",
-                    excerpt: "Git is a version control system that helps track changes in code. GitHub is a platform to host and collaborate on Git repositories.",
-                    category: "AI/ML",
-                    image: "https://via.placeholder.com/400x250/6a5acd/ffffff?text=Git+GitHub",
-                    content: "Git is a distributed version-control system for tracking changes in source code during software development. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files. GitHub is a web-based hosting service for version control using Git. It is a social coding platform that provides a graphical interface for developers."
-                },
-                {
-                    title: "Introduction to Machine Learning",
-                    excerpt: "A basic guide to the world of machine learning, from supervised to unsupervised learning and beyond.",
-                    category: "AI/ML",
-                    image: "https://via.placeholder.com/400x250/6a5acd/ffffff?text=Machine+Learning",
-                    content: "Machine learning is a subset of artificial intelligence that provides systems with the ability to automatically learn and improve from experience without being explicitly programmed."
-                },
-                {
-                    title: "Building a Portfolio with React",
-                    excerpt: "Learn how to create a professional and responsive portfolio website using the React library.",
-                    category: "Web Development",
-                    image: "https://via.placeholder.com/400x250/6a5acd/ffffff?text=React+Portfolio",
-                    content: "React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies."
-                }
-            ];
-
-            // A function to display a custom alert message
-            function showCustomAlert(message, type) {
-                const messageDiv = document.createElement('div');
-                messageDiv.textContent = message;
-                messageDiv.style.cssText = `
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    padding: 15px;
-                    border-radius: 8px;
-                    color: white;
-                    z-index: 1000;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                    font-weight: bold;
-                    background-color: ${type === 'success' ? '#28a745' : '#dc3545'};
-                `;
-                document.body.appendChild(messageDiv);
-                setTimeout(() => {
-                    messageDiv.remove();
-                }, 3000);
-            }
-
-            let customBlogPosts = JSON.parse(localStorage.getItem("customBlogPosts")) || [];
-            let allBlogPosts = [...customBlogPosts, ...defaultBlogPosts];
-            const post = allBlogPosts.find(p => p.title === postTitle);
-            const isCustomPost = customBlogPosts.some(p => p.title === postTitle);
-
-            if (post) {
-                // Display the full content of the blog post
-                postContainer.innerHTML = `
-                ${post.image ? `<img src="${post.image}" alt="${post.title}" class="post-image">` : ''}
-                    <h2 class="post-title">${post.title}</h2>
-                    <h3 class="post-category">${post.category}</h3>
-                    <div class="post-content">${post.content}</div>
-                `;
-
-                // Show action buttons for custom posts only
-                if (isCustomPost) {
-                    actionButtons.style.display = "flex";
-                }
-                
-                // Set up the "Edit" button link
-                editButton.href = `../editPost/editPost.html?title=${encodeURIComponent(post.title)}`;
-
-                // Set up the "Delete" button functionality
-                deleteButton.addEventListener('click', () => {
-                    // Custom confirmation dialog
-                    const confirmation = confirm(`Are you sure you want to delete the post "${post.title}"?`);
-                    
-                    if (confirmation) {
-                        const postIndex = customBlogPosts.findIndex(p => p.title === post.title);
-                        if (postIndex !== -1) {
-                            customBlogPosts.splice(postIndex, 1);
-                            localStorage.setItem("customBlogPosts", JSON.stringify(customBlogPosts));
-                            showCustomAlert('Post deleted successfully!', 'error');
-                            setTimeout(() => {
-                                window.location.href = "../../index.html";
-                            }, 1500);
-                        }
-                    }
-                });
-
-            } else {
-                postContainer.innerHTML = `<p>Blog post not found.</p>`;
-            }
-
-            // Hide loading indicator after content is rendered
-            loadingIndicator.style.display = 'none';
-        });
-    </script>
-</body>
+  </body>
 </html>

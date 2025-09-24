@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ===============================
+   General Styles
+================================ */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+.header-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+/* ===============================
+   Footer
+================================ */
+footer {
+  background: #2c3e50;
+  color: #ddd;
+  text-align: center;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* ===============================
+   Page Header
+================================ */
+.page-header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+/* ===============================
+   Add Post Form
+================================ */
+.add-post-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.add-post-form .form-label {
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 0.4rem;
+}
+
+.add-post-form .form-control,
+.add-post-form .form-select,
+.add-post-form textarea {
+  border-radius: 8px;
+  font-size: 0.95rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-post-form .form-control:focus,
+.add-post-form .form-select:focus,
+.add-post-form textarea:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.25);
+  outline: none;
+}
+
+.add-post-form .form-text {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 0.3rem;
+}
+
+.add-post-form .invalid-feedback {
+  font-size: 0.85rem;
+  color: #c0392b;
+}
+
+/* ===============================
+   Buttons
+================================ */
+.add-post-form .btn-primary {
+  background: #1abc9c;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.add-post-form .btn-primary:hover {
+  background: #16a085;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   Message Styling
+================================ */
+#message {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+#message.success {
+  color: #27ae60;
+}
+
+#message.error {
+  color: #e74c3c;
+}
+
+/* ===============================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+  .add-post-form {
+    padding: 1.5rem;
+  }
+}

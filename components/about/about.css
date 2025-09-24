@@ -1,0 +1,17 @@
+/*
+  ========================================
+  About Page Specific
+  ========================================
+*/
+.profile-image {
+  display: block;
+  max-width: 220px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  border: 5px solid #6a5acd;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.page-content p {
+  margin-bottom: 1.5em;
+}

@@ -1,0 +1,36 @@
+/* ===============================
+   Navbar Styles (Cleaned)
+================================ */
+
+/* Navbar Container */
+.nav-links {
+  background-color: #e0e0e0;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  gap: 1.5rem;
+  max-width: max-content;  /* only as wide as content */
+  margin: 0 auto;
+}
+
+/* Navbar Links */
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Active Link */
+.nav-links a.active {
+  background: #9b5de5;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Hover Effect */
+.nav-links a:hover:not(.active) {
+  color: #9b5de5;
+}
