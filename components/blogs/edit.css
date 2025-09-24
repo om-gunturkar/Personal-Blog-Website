@@ -1,0 +1,212 @@
+/* ===============================
+    General Styles
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #ffffff;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===============================
+    Main Content Container
+================================ */
+.main-container {
+  flex-grow: 1; /* Pushes the footer down */
+  width: 100%;
+  max-width: 900px; /* Limits the max width of the content */
+  margin: .5rem auto;
+  padding: 0 1rem;
+}
+
+/* ===============================
+    Header
+================================ */
+.header-container {
+  display: flex;
+  background-color: #ffffff;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+/* ===============================
+    Footer
+================================ */
+.main-footer {
+  background: #2c3e50;
+  color: #ddd;
+  text-align: center;
+  padding: 1.2rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* ===============================
+    Page Header
+================================ */
+.page-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.page-header h1 {
+  border-bottom: 2px solid #9b5de5; /* Purple underline */
+  background: #f0e9fc;
+  font-size: 2rem;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  color: #6a1b9a; /* Dark purple heading */
+  margin-bottom: 0.5rem;
+}
+
+/* ===============================
+    Edit Post Form
+================================ */
+.page-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Flexbox layout for the form fields */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Flexbox for two-column fields on larger screens */
+.two-column-fields {
+  display: flex;
+  gap: 2rem;
+}
+
+.two-column-fields > div {
+  flex: 1;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 0.4rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #9440fa;
+  box-shadow: 0 0 0 2px rgba(155, 93, 229, 0.25);
+  outline: none;
+}
+
+.form-hint {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 0.3rem;
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+/* ===============================
+    Buttons
+================================ */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.btn-save, .btn-delete {
+  background: #9440fa;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-save:hover, .btn-delete:hover {
+  transform: translateY(-3px);
+}
+
+.btn-delete {
+  background: #dc3545;
+}
+
+/* Back Button */
+.back-button {
+  display: inline-block;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+    Message Styling
+================================ */
+#message {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+#message.success {
+  color: #27ae60;
+}
+
+#message.error {
+  color: #e74c3c;
+}
+
+/* ===============================
+    Responsive
+================================ */
+@media (max-width: 768px) {
+  .page-content {
+    padding: 1.5rem;
+  }
+  .two-column-fields {
+    flex-direction: column;
+  }
+}

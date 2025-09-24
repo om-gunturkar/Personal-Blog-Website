@@ -38,16 +38,19 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: 1rem 0;
   padding: 1rem 0;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
   width: 100%;
 }
 
 .page-header h1 {
-   border-bottom: 2px solid #9b5de5;  /* Purple underline */
+   border-bottom: 2px solid #9440fa;
   background: #f0e9fc;       
   font-size: 2rem;
   border-radius: 15px;
+  padding-bottom: 0px;
   padding: 1rem 2rem;
   color: #6a1b9a;   /* Dark purple heading */
   margin-bottom: 0.5rem;
@@ -57,10 +60,13 @@ footer {
    Add Post Form
 ================================ */
 .add-post-form {
-  background: #fff;
+  /* Change this block to the following: */
+  background: #e6e6fa; /* Light violet background */
+  padding-top: 0px;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid #9440fa;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -84,7 +90,7 @@ footer {
 .add-post-form .form-control:focus,
 .add-post-form .form-select:focus,
 .add-post-form textarea:focus {
-  border-color: #9b5de5;
+  border-color: #9440fa;
   box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.25);
   outline: none;
 }
@@ -104,7 +110,7 @@ footer {
    Buttons
 ================================ */
 .add-post-form .btn-primary {
-  background: #9b5de5;
+  background: #9440fa;
   border: none;
   padding: 0.7rem 1.5rem;
   border-radius: 8px;

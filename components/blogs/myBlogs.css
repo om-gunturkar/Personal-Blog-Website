@@ -1,240 +1,147 @@
-/* ===============================
-   General Styles
-================================ */
-body {
-  font-family: "Poppins", sans-serif;
+/* General Layout & Page Reset */
+body,
+html {
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  background: #f9f9f9;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
   color: #333;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* Flexbox Container for Full Height & Sticky Footer */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* A very light gray background */
 }
 
-.container,
-.main-container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-/* ===============================
-   Footer
-================================ */
-footer {
-  background: #2c3e50;
-  color: #ddd;
-  text-align: center;
-  padding: 1.2rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-}
-
-/* ===============================
-   Page Headers
-================================ */
-.page-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.page-header h1,
-.page-title {
-  font-size: 2rem;
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-}
-
-/* ===============================
-   Blog Grid (My Blogs Page)
-================================ */
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.5rem;
-}
-
-.post-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
-.post-card img {
+/* Main Content Area */
+main.post-container {
+  flex-grow: 1; /* This is the key property for the sticky footer */
   width: 100%;
-  height: 180px;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Post Header & Buttons */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Full Blog Article Styling */
+article.blog-article {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Post Elements */
+.post-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
   object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 2.5rem;
 }
 
-.post-card-content {
-  padding: 1rem;
+/* New: Content Information Grid */
+.content-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 1rem 2rem;
+  margin-bottom: 2.5rem;
 }
 
-.post-card h3 {
-  font-size: 1.2rem;
-  margin: 0.3rem 0;
-  color: #2c3e50;
+.content-info .info-pair {
+  display: flex;
+  flex-direction: column;
 }
 
-.post-card p {
-  font-size: 0.95rem;
-  color: #666;
-}
-
-/* ===============================
-   Back Button
-================================ */
-.back-button {
-  display: inline-block;
-  margin-bottom: 1rem;
+.content-label {
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
   font-size: 0.9rem;
-  color: #2c3e50;
-  background: #ecf0f1;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  transition: background 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.content-text {
+  font-size: 1.1rem;
+  color: #222;
+  margin-top: 0.2rem;
+}
+
+/* For the main content section */
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #495057;
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* Button Styles */
+.post-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.back-button {
+  color: #007bff;
+  background-color: transparent;
+  padding: 0.5rem 0;
+  border: none;
+  text-decoration: none;
 }
 
 .back-button:hover {
-  background: #d0d7dd;
+  text-decoration: underline;
 }
 
-/* ===============================
-   Edit Form
-================================ */
-.edit-form {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.form-label {
-  display: block;
-  font-weight: 500;
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-  color: #2c3e50;
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-  width: 100%;
-  padding: 0.7rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  outline: none;
-  border-color: #1abc9c;
-  box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.2);
-}
-
-.form-hint {
-  font-size: 0.8rem;
-  color: #777;
-}
-
-/* ===============================
-   Buttons
-================================ */
-.button-group {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.btn-save,
-.btn-delete {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.btn-save {
-  background: #1abc9c;
-  color: #fff;
-}
-
-.btn-save:hover {
-  background: #16a085;
-}
-
-.btn-delete {
-  background: #e74c3c;
-  color: #fff;
-}
-
-.btn-delete:hover {
-  background: #c0392b;
-}
-
-/* ===============================
-   Blog Post Page
-================================ */
-.full-blog-post {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.full-blog-post h2 {
-  color: #2c3e50;
-}
-
-.full-blog-post img {
-  width: 100%;
-  margin: 1.5rem 0;
-  border-radius: 10px;
-}
-
-#action-buttons {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 1rem;
-}
-
-/* ===============================
-   Form Message
-================================ */
-.form-message {
-  margin-top: 1rem;
-  padding: 0.8rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  display: none;
-}
-
-.form-message.success {
-  background: #eafaf1;
-  color: #27ae60;
-}
-
-.form-message.error {
-  background: #fdecea;
-  color: #c0392b;
+/* Footer Styles */
+.main-footer {
+  flex-shrink: 0;
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #e9ecef;
+  border-top: 1px solid #dee2e6;
+  color: #6c757d;
 }

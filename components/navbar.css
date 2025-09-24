@@ -1,15 +1,15 @@
 /* ===============================
-   Navbar Styles (Cleaned)
+    Navbar Styles (Cleaned)
 ================================ */
 
 /* Navbar Container */
 .nav-links {
-  background-color: #f0e9fc;
+  background-color: #ece3fd;
   padding: 0.5rem 1rem;
   border-radius: 12px;
   display: flex;
   gap: 1.5rem;
-  max-width: max-content;  /* only as wide as content */
+  max-width: max-content; /* only as wide as content */
   margin: 0 auto;
 }
 
@@ -23,14 +23,20 @@
   transition: all 0.3s ease;
 }
 
-/* Active Link */
-.nav-links a.active {
-  background: #9b5de5;
+/* Hover Effect for all links */
+.nav-links a:hover {
+  background: #9440fa;
   color: #fff;
-  font-weight: 700;
 }
 
-/* Hover Effect */
-.nav-links a:hover:not(.active) {
-  color: #9b5de5;
+/* Active Link */
+.nav-links a.active {
+  background: #9440fa;
+  color: #fff;
+}
+
+/* Hover effect specifically for the active link */
+.nav-links a.active:hover {
+  background: #9b5de5; /* A slightly darker shade for the hover effect */
+  color: #fff;
 }

@@ -1,17 +1,166 @@
-/*
-  ========================================
-  About Page Specific
-  ========================================
-*/
-.profile-image {
-  display: block;
-  max-width: 220px;
-  margin: 0 auto 30px;
-  border-radius: 50%;
-  border: 5px solid #6a5acd;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+/* ===============================
+  Global Styles
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===============================
+  Header + Navbar
+================================ */
+.main-header {
+  padding: 1rem 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  background-color: #e0e0e0;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  gap: 1.5rem;
+  max-width: max-content;
+  margin: 0 auto;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-links a.active {
+  background: #9440fa;
+  color: #fff;
+  font-weight: 700;
+}
+
+.nav-links a:hover:not(.active) {
+  color: #ffffff;
+}
+
+/* ===============================
+  Page Header
+================================ */
+.page-header {
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #6a1b9a;
+  background: #f0e9fc;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #9440fa; /* Changed to a border instead of border-bottom */
+}
+
+/* ===============================
+  About Me Page Content
+================================ */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+.page-content {
+  background: #e6e6fa;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  border: 2px solid #9440fa;
 }
 
 .page-content p {
-  margin-bottom: 1.5em;
+    margin-bottom: 1rem; /* Add space between paragraphs */
+}
+
+.profile-image {
+  max-width: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* Added styling for the list to match the screenshot */
+.page-content ul {
+    list-style: none; /* Removes default bullets */
+    padding-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-content ul li {
+    margin-bottom: 0.5rem; /* Space between list items */
+    position: relative;
+    padding-left: 20px;
+}
+
+.page-content ul li::before {
+    content: '•'; /* Custom bullet point */
+    position: absolute;
+    left: 0;
+    color: #9440fa; /* Color for the bullet */
+    font-size: 1.2em;
+    top: -2px;
+}
+
+/* Styling for bold and italic text within paragraphs */
+.page-content p strong {
+  font-weight: bold;
+}
+
+.page-content p em {
+  font-style: italic;
+}
+
+/* ===============================
+  Footer
+================================ */
+footer {
+  background: #2c3e50;
+  color: #ddd;
+  text-align: center;
+  padding: 1.2rem;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+/* ===============================
+  Responsive
+================================ */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .page-content {
+    padding: 1.5rem;
+  }
 }

@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blogs - My Personal Blog</title>
-    <link rel="stylesheet" href="./myBlogs.css">
-    <link rel="stylesheet" href="../navbar.css">
-</head>
-<body>
-
-    <header class="main-header">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post - The Digital Journal</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./myBlogs.css" />
+    <link rel="stylesheet" href="../navbar.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="main-header">
         <div class="header-container">
-            <a href="../../index.html" class="logo">The Digital Journal</a>
-            <nav class="nav-links">
-                <a href="../../index.html">Home</a>
-                          <a href="../addPost/addPost.html">Add Post</a>
-
-                <a href="../about/about.html">About</a>
-                <a href="../contactMe/contact.html">Contact</a>
-            </nav>
+          <a href="../../index.html" class="logo">The Digital Journal</a>
+          <nav class="nav-links">
+            <a href="../../index.html">Home</a>
+            <a href="../addPost/addPost.html">Add Post</a>
+            <a href="../about/about.html">About</a>
+            <a href="../contactMe/contact.html">Contact</a>
+          </nav>
         </div>
-    </header>
+      </header>
 
-    <main class="container">
-        <section class="page-header">
-            <h1>My Blog Posts</h1>
-        </section>
-        
-        <section id="blog-posts-container" class="posts-grid">
-            </section>
-    </main>
+      <main class="post-container">
+        <div class="post-header">
+          <a href="javascript:history.back()" class="btn back-button">
+            &lt; Back
+          </a>
+          <div id="action-buttons" class="button-group" style="display: none">
+            <a id="edit-post-btn" href="./edit.html" class="post-btn edit-btn"
+              >Edit Post</a
+            >
+            <button id="delete-post-btn" class="post-btn delete-btn">
+              Delete Post
+            </button>
+          </div>
+        </div>
 
-    <footer>
-        <p>&copy; 2024 My Personal Blog. All Rights Reserved.</p>
-    </footer>
+        <article id="blog-post-content" class="blog-article">
+          <div id="loading-indicator" class="text-center my-5">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </article>
+      </main>
 
-    <script src="../script.js"></script>
-</body>
+      <footer class="main-footer">
+        <p>&copy; 2024 The Digital Journal. All Rights Reserved.</p>
+      </footer>
+    </div>
+    <script src="../../script.js"></script>
+  </body>
 </html>
