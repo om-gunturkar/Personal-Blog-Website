@@ -10,16 +10,60 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./addPost.css" />
     <link rel="stylesheet" href="../navbar.css" />
   </head>
   <body>
-    <header class="header-container">
-      <nav class="nav-links">
-        <a href="../../index.html">Home</a>
-        <a href="./addPost.html" class="active">Add Post</a>
-        <a href="../about/about.html">About</a>
-        <a href="../contactMe/contact.html">Contact</a>
+    <!-- Desktop Navbar -->
+    <header class="main-header desktop-navbar">
+      <div class="header-container">
+        <nav class="nav-links">
+          <a href="../../index.html">Home</a>
+          <a href="./addPost.html" class="active">Add Post</a>
+          <a href="../about/about.html">About</a>
+          <a href="../contactMe/contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Mobile Navbar -->
+    <header class="main-header mobile-navbar">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../../index.html">Om Gunturkar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./addPost.html">Add Post</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../about/about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../contactMe/contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -129,7 +173,7 @@
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZq+I6sFvV9k4f+wJ3gA7a7N1b5U/K7L5S5uA4G3c05vQk+I6qG5a7d6t1b5t4v4n7l4e3a8p4o"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
 
@@ -181,6 +225,10 @@
         );
       })();
     </script>
-    <script src="../../script.js"></script>
+    <script src="../../script.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

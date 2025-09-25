@@ -7,19 +7,61 @@
     <link rel="stylesheet" href="./myBlogs.css" />
     <link rel="stylesheet" href="../navbar.css" />
     <link rel="stylesheet" href="./edit.css" />
+            <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body>
-    <header class="main-header">
+    <header class="main-header desktop-navbar">
       <div class="header-container">
         <nav class="nav-links">
-          <a href="../../index.html" class="nav-item">Home</a>
-          <a href="../addPost/addPost.html" class="nav-item">Add Post</a>
-          <a href="../about/about.html" class="nav-item">About</a>
-          <a href="../contactMe/contact.html" class="nav-item">Contact</a>
+          <a href="index.html" class="active">Home</a>
+          <a href="./components/addPost/addPost.html">Add Post</a>
+          <a href="./components/about/about.html">About</a>
+          <a href="./components/contactMe/contact.html">Contact</a>
         </nav>
       </div>
     </header>
+
+    <!-- Mobile Navbar -->
+    <header class="main-header mobile-navbar">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Om Gunturkar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./components/addPost/addPost.html">Add Post</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./components/about/about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./components/contactMe/contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
 
     <main class="main-container">
       <section class="page-header">
@@ -123,6 +165,10 @@
       <p>&copy; 2024 My Personal Blog. All Rights Reserved.</p>
     </footer>
 
-    <script src="../../script.js"></script>
+    <script src="../../script.js" defer></script>
+            <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

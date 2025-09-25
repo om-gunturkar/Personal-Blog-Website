@@ -12,8 +12,7 @@ body {
   margin: 0;
   background: #ffffff;
   color: #333;
-  line-height: 1.6;
-  min-height: 100vh;
+  line-height: 1.2;
   display: flex;
   flex-direction: column;
 }
@@ -58,18 +57,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: 1rem 0;
   padding: 1rem 0;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
   width: 100%;
 }
 
 .page-header h1 {
-  border-bottom: 2px solid #9b5de5; /* Purple underline */
-  background: #f0e9fc;
+   border-bottom: 2px solid #9440fa;
+  background: #f0e9fc;       
   font-size: 2rem;
   border-radius: 15px;
+  padding-bottom: 0px;
   padding: 1rem 2rem;
-  color: #6a1b9a; /* Dark purple heading */
+  color: #6a1b9a;   /* Dark purple heading */
   margin-bottom: 0.5rem;
 }
 
@@ -77,10 +79,13 @@ body {
     Edit Post Form
 ================================ */
 .page-content {
-  background: #fff;
+  /* Change this block to the following: */
+  background: #e6e6fa; /* Light violet background */
+  padding-top: 0px;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid #9440fa;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -89,7 +94,7 @@ body {
 .edit-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.9rem;
 }
 
 /* Flexbox for two-column fields on larger screens */

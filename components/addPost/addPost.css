@@ -150,3 +150,17 @@ footer {
     padding: 1.5rem;
   }
 }
+      /* Hide mobile navbar by default */
+      .mobile-navbar {
+        display: none;
+      }
+
+      /* Below 400px → show mobile navbar, hide desktop */
+      @media (max-width: 400px) {
+        .desktop-navbar {
+          display: none;
+        }
+        .mobile-navbar {
+          display: block;
+        }
+      }

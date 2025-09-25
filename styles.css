@@ -448,3 +448,90 @@ footer {
     transform: translateY(-2px); 
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
+
+
+/* ===============================
+    Responsive Enhancements
+================================ */
+
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 2;
+    margin-top: 1.5rem;
+  }
+
+  .hero-image-container {
+    order: 1;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-image {
+    width: 70%;
+    height: auto;
+    max-width: 300px;
+  }
+
+  .posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 576px) {
+  body {
+    font-size: 15px;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .specialization {
+    font-size: 0.9rem;
+  }
+
+  .hero-socials {
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .social-box i {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .post-card {
+    height: auto;
+  }
+
+  .post-card img {
+    height: 200px;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+}
