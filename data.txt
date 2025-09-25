@@ -1,0 +1,61 @@
+const defaultBlogPosts = [
+    {
+      title: "Getting Started with HTML",
+      excerpt:
+        "HTML is the backbone of the web. Learn the basics of creating your first web page with HTML tags.",
+      category: "Web Development",
+      image: "assets/01.jpg",
+      content:
+        "HyperText Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript. This post covers the essential tags like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;a&gt;</code>.",
+    },
+    {
+      title: "Styling with CSS Flexbox",
+      excerpt:
+        "CSS Flexbox is a one-dimensional layout method for arranging items in rows or columns. It makes building complex layouts much easier.",
+      category: "Web Development",
+      image:
+        "assets/02.jpg",
+      content:
+        "The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer a flexible and efficient way to lay out, align, and distribute space among items in a container, even when their size is unknown or dynamic.",
+    },
+    {
+      title: "Introduction to JavaScript",
+      excerpt:
+        "JavaScript is a programming language that makes web pages interactive. From simple animations to complex web applications, JavaScript is key.",
+      category: "Web Development",
+      image:
+        "assets/03.jpg",
+      content:
+        "JavaScript, often abbreviated as JS, is a high-level, interpreted programming language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions. It is used to create dynamic and interactive content on web pages.",
+    },
+    {
+      title: "Understanding Git and GitHub",
+      excerpt:
+        "Git is a version control system that helps track changes in code. GitHub is a platform to host and collaborate on Git repositories.",
+      category: "AI/ML",
+      image:
+        "assets/04.jpg",
+      content:
+        "Git is a distributed version-control system for tracking changes in source code during software development. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files. GitHub is a web-based hosting service for version control using Git. It is a social coding platform that provides a graphical interface for developers.",
+    },
+    {
+      title: "Introduction to Machine Learning",
+      excerpt:
+        "A basic guide to the world of machine learning, from supervised to unsupervised learning and beyond.",
+      category: "AI/ML",
+      image:
+        "assets/05.jpg",
+      content:
+        "Machine learning is a subset of artificial intelligence that provides systems with the ability to automatically learn and improve from experience without being explicitly programmed.",
+    },
+    {
+      title: "Building a Portfolio with React",
+      excerpt:
+        "Learn how to create a professional and responsive portfolio website using the React library.",
+      category: "Web Development",
+      image:
+        "assets/06.jpg",
+      content:
+        "React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.",
+    },
+  ];

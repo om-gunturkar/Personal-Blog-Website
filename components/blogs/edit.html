@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Blog Post - My Personal Blog</title>
     <link rel="stylesheet" href="./myBlogs.css" />
-    <link rel="stylesheet" href="../navbar.css">
-    <link rel="stylesheet" href="./edit.css">
+    <link rel="stylesheet" href="../navbar.css" />
+    <link rel="stylesheet" href="./edit.css" />
   </head>
 
   <body>
@@ -29,13 +29,32 @@
       <section class="page-content">
         <form id="edit-post-form" class="edit-form">
           <label for="post-title" class="form-label">Title:</label>
-          <input type="text" id="post-title" class="form-input" name="title" required />
+          <input
+            type="text"
+            id="post-title"
+            class="form-input"
+            name="title"
+            required
+          />
 
-          <label for="post-subject" class="form-label">Subject/Short Excerpt:</label>
-          <input type="text" id="post-subject" class="form-input" name="subject" required />
+          <label for="post-subject" class="form-label"
+            >Subject/Short Excerpt:</label
+          >
+          <input
+            type="text"
+            id="post-subject"
+            class="form-input"
+            name="subject"
+            required
+          />
 
           <label for="post-category" class="form-label">Category:</label>
-          <select id="post-category" class="form-select" name="category" required>
+          <select
+            id="post-category"
+            class="form-select"
+            name="category"
+            required
+          >
             <option value="">Select a Category</option>
             <option value="Web Development">Web Development</option>
             <option value="Data Science">Data Science</option>
@@ -44,18 +63,55 @@
             <option value="General">General</option>
           </select>
 
-          <label for="post-image" class="form-label">Image URL (Optional):</label>
-          <input type="url" id="post-image" class="form-input" name="image" />
-          <small class="form-hint">
-            Provide a direct URL to an image. If empty, the original will be kept.
-          </small>
+
+<label class="form-label">Upload Image:</label>
+<div class="custom-file-upload-wrapper">
+    <input
+        type="file"
+        id="post-image-file"
+        class="custom-file-input"
+        accept="image/*"
+    />    
+</div>
+
+<div class="image-preview-container">
+  <img
+    id="image-preview"
+    src=""
+    alt="Image Preview"
+    style="
+      max-width: 400px;
+      margin-top: 10px;
+      display: none;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    "
+  />
+  <button
+    type="button"
+    id="remove-file-image-btn" 
+    class="btn-remove1"
+    style="display: none; margin-top: 10px;"
+  >
+    Remove Image
+  </button>
+</div>
+  </div>
 
           <label for="post-description" class="form-label">Full Content:</label>
-          <textarea id="post-description" class="form-textarea" name="description" rows="10" required></textarea>
+          <textarea
+            id="post-description"
+            class="form-textarea"
+            name="description"
+            rows="10"
+            required
+          ></textarea>
 
           <div class="button-group">
             <button type="submit" class="btn-save">Save Changes</button>
-            <button type="button" id="delete-post-btn" class="btn-delete">Delete Blog</button>
+            <button type="button" id="delete-post-btn" class="btn-delete">
+              Delete Blog
+            </button>
           </div>
         </form>
 

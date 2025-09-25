@@ -15,14 +15,12 @@
   </head>
   <body>
     <header class="header-container">
-      
-          <nav class="nav-links">
-            <a href="../../index.html">Home</a>
-            <a href="./addPost.html" class="active">Add Post</a>
-            <a href="../about/about.html">About</a>
-            <a href="../contactMe/contact.html">Contact</a>
-          </nav>
-      
+      <nav class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="./addPost.html" class="active">Add Post</a>
+        <a href="../about/about.html">About</a>
+        <a href="../contactMe/contact.html">Contact</a>
+      </nav>
     </header>
 
     <main class="container">
@@ -85,18 +83,18 @@
           </div>
 
           <div class="mb-3">
-            <label for="post-image" class="form-label"
-              >Image URL (Optional):</label
+            <label for="post-image-file" class="form-label"
+              >Upload Image:</label
             >
             <input
-              type="url"
-              id="post-image"
-              name="image"
+              type="file"
+              id="post-image-file"
+              accept="image/*"
               class="form-control"
             />
             <div class="form-text">
-              Provide a direct URL to an image. If empty, a placeholder will be
-              used.
+              Upload an image to feature with your post. A default will be used
+              if none is uploaded.
             </div>
           </div>
 
