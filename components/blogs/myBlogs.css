@@ -144,4 +144,9 @@ article.blog-article {
   background-color: #e9ecef;
   border-top: 1px solid #dee2e6;
   color: #6c757d;
+    position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
